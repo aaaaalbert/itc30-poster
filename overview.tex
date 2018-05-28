@@ -62,5 +62,21 @@ data rate adaptations, etc.
 
 \subsection{\gls{ttn}'s system architecture}
 
+\gls{ion}'s deployment is built on \gls{ttn}'s system architecture,
+and interfaces with other compatible systems around the world.
+Figure~\ref{fig:ttn-arch} overviews the system architecture employed
+by \gls{ttn}. Wireless devices (left) transmit messages that are
+received by one or more gateways. Network servers manage the gateways,
+balance their utilization, track device states, forward server traffic
+for specific applications over the Internet, and support service discovery.
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\columnwidth]{figures/ttn_tech_stack.png}
+  \caption{\gls{ttn}'s system architecture~\cite{ttn}.}
+  \label{fig:ttn-arch}
+\end{figure}
+
 
 \subsection{The \gls{oin} community}
