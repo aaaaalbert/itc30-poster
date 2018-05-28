@@ -10,6 +10,16 @@
 
 
 \documentclass[conference]{IEEEtran}
+\usepackage[utf8]{inputenc}
+\usepackage{cite}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{color}
+%\usepackage{hyperref}
+\usepackage{flushend}
+
+\usepackage{glossaries}
+\loadglsentries{acronyms}
 
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
@@ -17,7 +27,7 @@
 
 \begin{document}
 
-\title{openiot.network: A Free, Open Community IoT Network based on LoRaWAN}
+\title{\gls{oin}: A Free, Open Community \acrshort{IoT} Network based on \gls{lorawan}}
 
 
 % author names and affiliations
@@ -34,15 +44,9 @@
 % make the title area
 \maketitle
 
-% As a general rule, do not put math, special symbols or citations
-% in the abstract
-\begin{abstract}
-The abstract goes here.
-\end{abstract}
-
-% no keywords
-
-
+\input{abstract}
+\input{intro}
+\input{acknowledgements}
 
 
 % For peer review papers, you can put extra information on the cover
@@ -55,10 +59,9 @@ The abstract goes here.
 % creates the second title. It will be ignored for other modes.
 \IEEEpeerreviewmaketitle
 
+%\bibliography{iot}
+%\bibliographystyle{plain}
 
-
-\section{Introduction}
 
 \end{document}
-
 
