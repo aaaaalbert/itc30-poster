@@ -62,7 +62,7 @@ data rate adaptations, etc.
 
 \subsection{\gls{ttn}'s system architecture}
 
-\gls{oin}'s deployment is built on \gls{ttn}'s system architecture,
+\gls{oin}'s deployment is built on \gls{ttn}'s system architecture~\cite{ttn},
 and interfaces with other compatible systems around the world.
 Figure~\ref{fig:ttn-arch} overviews the system architecture employed
 by \gls{ttn}. Wireless devices (left) transmit messages that are
@@ -70,6 +70,13 @@ received by one or more gateways. Network servers manage the gateways,
 balance their utilization, track device states, forward server traffic
 for specific applications over the Internet, and support service discovery.
 
+Remarkably, the \gls{ttn} system architecture roots in the assumption
+that services are distributed across domains and are contributed
+by multiple parties. No single operator controls the network.
+Therefore, implicit trust must be minimized, and clear, functional
+component separations emerge.
+This is in contrast to the operator-centric notion of traditional
+communication networks.
 
 \begin{figure}
   \centering
