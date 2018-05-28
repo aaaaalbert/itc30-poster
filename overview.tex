@@ -20,12 +20,44 @@ In the following, we describe each aspect in greater detail.
 low-bandwidth wireless transmissions. It operates in license-exempt
 frequency ranges (the 433 MHz (EMEA, northern Asia) and 915 MHz
 (the Americas) \acrshort{ISM} bands, and the European 868 MHz
-\acrshort{SRD} band).
+\acrshort{SRD} band). The transmit power is thus limited to around
+10 dBm (10 milliwatts), depending on local legislation.
+\gls{lora} symbols consist of constant-amplitude up- and downchirps,
+with an overall configurable chirp rate (called ``spreading factor'')
+and bandwidth.
+A certain degree of orthogonality between temporally overlapping
+transmissions is achieved by using different sub-ranges of
+the current frequency band (better), and assigning different spreading
+factors to different senders (less optimal)~\cite{croce}.
+Otherwise, senders are assumed to listen-before-talk, use low
+transmit power, and limit their active duty cycles explicitly
+according to radio regulations in the frequency band, and implicitly
+due to limited available (battery) power.
+Depending on the actual modulation parameters used, \gls{lora}
+achieves bit rates of 300-21,000 bits per second, and message lengths
+of 20 to 250 bytes.
+% Sensitivity -148 dBm, https://www.microchip.com/design-centers/wireless-connectivity/low-power-wide-area-networks/lora-technology
+%
+% Message length on the air 50-1500 ms
 
-
-
-.... tech for l1/l2 ....
-
+\gls{lorawan}~\cite{lorawan-specs} builds on \gls{lora} and adds
+a message format usable in a system with wireless end devices,
+access gateways, and network servers for further data processing.
+The message format
+supports two layers of AES-128 cryptography to secure
+the message contents. A Network Session Key is used to calculate a
+message integrity code, and to encrypt MAC-only (i.e., not
+application-oriented) messages. The Application Session Key encrypts
+application-specific messages. Both session keys may derived in an
+over-the-air activation procedure that assumes a pre-shared
+Application Identifier (AppEUI) to be present in the device.
+In addition, the device's globally unique EUI-64 address is used
+for session key derivation. Thus, every device derives its own
+application- and device-specific Network and Application session key,
+and key compromise only affects that single device.
+Besides, the message format supports framing information, managing
+endpoint addressing, acknowledgement requests and retransmissions,
+data rate adaptations, etc.
 
 
 \subsection{\gls{ttn}'s system architecture}
