@@ -1,6 +1,8 @@
 library(ggplot2)
 setwd("itc30-poster/data")
 
+mytheme <- theme(text = element_text(size=24))
+
 #######################################################################
 # RSSI overall und top gateway
 #######################################################################
@@ -12,7 +14,7 @@ ggplot(rssi.all, aes(x = RSSI.in.dBm)) +
   geom_col(aes(y=count)) + # scale_y_log10() +
   geom_col(data=rssi.top, aes(x=rssi.in.dBm, y=count), fill="cyan", ) +
   labs(x="RSSI [dBm]", y="Number of messages") +
-  theme(text = element_text(size=12))
+  mytheme
 ggsave("../figures/rssi.pdf", device = cairo_pdf, width=12, height=8)
 
 
@@ -28,7 +30,7 @@ ggplot(qrg.all, aes(x=xmit.freq.MHz)) + geom_col(aes(y=count)) +
   geom_col(data=qrg.top, aes(x=xmit.freq.MHz, y=count), fill="cyan") +
   # scale_x_continuous(limits=c(867.1, 868.5), breaks=sort(qrg.all$xmit.freq.MHz), labels=as.character(sort(qrg.all$xmit.freq.MHz))) +
   labs(x="Transmit frequency [MHz]", y="Number of messages") + # scale_y_log10() +
-  theme(text = element_text(size=12))
+  mytheme
 ggsave("../figures/qrg.pdf", device = cairo_pdf, width=12, height=8)
 
 
@@ -44,7 +46,7 @@ ggplot(sizes, aes(x=message.size)) + geom_col(aes(y=count)) +
   labs(x="Message size [bytes]", y="Number of messages (log scale)") +
   scale_y_log10() +
   # scale_x_log10() +
-  theme(text = element_text(size=12))
+  mytheme
 ggsave("../figures/sizes.pdf", device = cairo_pdf, width=12, height=8)
 
 
@@ -63,6 +65,6 @@ ggplot(counts, aes(x=day)) + geom_col(aes(y=count)) +
   labs(x="Day", y="Number of messages") +
   # Label each week with one date only
   scale_x_discrete(breaks=counts$day[seq(from=1, to=nrow(counts), by=7)]) +
-  theme(text = element_text(size=12))
+  mytheme
 ggsave("../figures/counts.pdf", device = cairo_pdf, width=12, height=8)
 
