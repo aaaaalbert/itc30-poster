@@ -1,6 +1,7 @@
 paper.pdf
 
 .DS_Store
+.Rhistory
 
 *.acn
 *.acr

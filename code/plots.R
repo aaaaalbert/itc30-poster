@@ -56,15 +56,19 @@ ggsave("../figures/sizes.pdf", device = cairo_pdf, width=12, height=8)
 # Messages per day
 #######################################################################
 
-counts <- read.csv("message_count_per_day.csv")
+counts.all <- read.csv("message_count_per_day.csv")
+counts.top <- read.csv("topgw_message_count_per_day.csv")
 
 # Turn unix timestamps into "month (abbreviated) day of month"
-counts$day <- strftime(as.POSIXlt(counts$day, origin="1970-01-1"), "%b %d")
+counts.all$day <- strftime(as.POSIXlt(counts.all$day, origin="1970-01-1"), "%b %d")
+counts.top$day <- strftime(as.POSIXlt(counts.top$day, origin="1970-01-1"), "%b %d")
 
-ggplot(counts, aes(x=day)) + geom_col(aes(y=count)) +
+ggplot(counts.all, aes(x=day)) + geom_col(aes(y=count)) +
+  geom_col(data=counts.top, aes(x=day, y=count), fill="cyan") +
   labs(x="Day", y="Number of messages") +
   # Label each week with one date only
-  scale_x_discrete(breaks=counts$day[seq(from=1, to=nrow(counts), by=7)]) +
+  scale_x_discrete(breaks=counts.all$day[seq(from=1, to=nrow(counts.all), by=7)]) +
   mytheme
+
 ggsave("../figures/counts.pdf", device = cairo_pdf, width=12, height=8)
 
