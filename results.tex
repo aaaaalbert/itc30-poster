@@ -4,9 +4,42 @@
 Below we present first results from studying the aggregate
 traffic across the multiple \gls{lorawan} gateways operated
 by volunteers in the \gls{oin} community.
-\todo[inline]{Daten von wann bis wann; wieviele Gateways und ungefähr wo; Spezifika der Sender, Empfänger hinsichtlich Kanälen, usw.}
+The current results were generated with an Elasticsearch-based
+tool that focuses on selected and aggregated metrics.
+\todo[inline]{Hier fehlt noch ein Satz über Kibana. Wer betreibt diese Instanz? Basiert sie auch auf TTN, oder ist das was eigenes?}
+Thus, we
+cannot yet report on metrics such as message inter-arrival times,
+collisions, or the number of distinct senders. However, we
+to extend the tool for more in-depth analysis in the future.
 
-\todo[inline]{Generelle Statistika, siehe auch notes.md}
+Our dataset aggregates more than two million messages seen between
+mid-April and mid-May 2018 across 13 gateways in an area of around
+250 square kilometers in and around Vienna, Austria.
+The gateways operate in diverse locations, ranging from window sills
+and rooftops of private homes to tall office and industrial buildings
+across the hilly region of Vienna. Accordingly, the area of reception
+varies greatly; maximum reception distances exceed 60 kilometers for
+some gateways, while others mainly work in their close neighborhood.
+Gateways also differ in terms of time deployed, their the hardware, and
+frequency channels supported by it. Similarly, senders differ
+in terms of output power and channel use, amounts of data generated,
+mobility, etc.
+With this caveat, we turn to discussing our first results.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\columnwidth]{figures/sizes.pdf}
+  \caption{Number messages per day across all gateways.}
+  \label{fig:sizes}
+\end{figure}
+
+Figure~\ref{fig:sizes} shows the number of messages per day for the
+evaluated period. The system handles an average (and median) of over
+73,000 messages per day, with peaks up to 120,000, corresponding to
+per-second averages of 0.8 and 1.3. A closer look reveals peaks
+of up to 3 messages per second. The most ``popular'' gateway
+receives 25\% of all messages; the three runners-up account for
+the next 25\% of messages received.
 
 \begin{figure}
   \centering
