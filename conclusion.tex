@@ -1,8 +1,41 @@
 %!TEX root = paper.tex
 \section{Conclusion and Future Work}\label{sec:conclusion}
 
-\todo[inline]{Zusammenfassung}
+This paper presents a first look at \gls{lorawan} traffic
+characteristics in the \gls{oin} community \gls{IoT} network
+in Vienna, Austria.
+The system is open for participation and use, which is interesting
+for two main aspects: First, it enables use cases beyond traditional
+centralized network operations and paid-for access.
+Second, it fosters collaboration both within the system and across
+its boundaries, this paper serving as an example for the latter.
+Opportunities to get involved are plentiful for academia, and
+prospects of knowledge gains abound.
 
-\todo[inline]{Bessere Auswertungen: IAT, pro Sender, Anonymisierung}
-\todo[inline]{Aktives Mapping vs passiver Gateway-Blick. (Passiert natürlich schon, siehe ,,Messfahrten'')}
-\todo[inline]{Daraus Modelle für Verkehr an Knoten, in der Aggregation; Spektrumnutzung}
+The aggregate traffic characteristics presented show that \gls{oin}
+currently handles 70 to 120 thousand messages per day, by far most
+of which are shorter than 50 bytes. The most active gateway out of
+13 in the Vienna region sees about a quarter of the traffic.
+\\
+
+The system used for aggregated statistics in this paper has its
+limitations, and we are actively working on overcoming them.
+For example, it currently lacks ways to investigate message
+inter-arrival times, making it difficult to discuss models for
+arrival processes.
+
+Our ongoing efforts also include an anonymization
+layer for message contents~\cite{lora-gateway-anonymize}.
+Using it, we will be able to evaluate more detailed information
+about received messages (including sender addresses, application
+port numbers, retransmission counters etc.) in a privacy-respecting
+fashion. It will also allow us to investigate spectrum usage
+and traffic aggregation at various levels of hierarchy across
+the \gls{oin} system.
+
+Furthermore, we presented a ``passive'', gateway-centric view.
+In the future, we plan to corroborate our studies using active
+mapping with senders that we control. We note however that individual
+efforts in this direction are already being carried out by \gls{oin}
+participants, e.g. with bicycle-mounted \gls{lorawan} \acrshort{GPS}
+beacons.
