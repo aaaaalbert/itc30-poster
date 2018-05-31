@@ -48,13 +48,19 @@ the next 25\% of messages received.
   \label{fig:rssi}
 \end{figure}
 
-Figure~\ref{fig:rssi} shows the \gls{RSSI} for messages across all
+Figure~\ref{fig:rssi} shows the \acrfull{RSSI} for messages across all
 gateways (gray), and at the most active gateway (cyan).
-
-\todo[inline]{keine geeichten Empfänger; wenig Leistung kommt an; Fading; Geografie der Empfänger; Geografie/Mobilität/nicht der Sender}
-
-
-
+Since the transmit power is unknown, the gateway hardware differs,
+receive antenna gains are unknown, and the receivers are not calibrated,
+the numbers should be interpreted with some caution.
+Overall, the received power is of reasonable magnitude,
+peaking around -120 dBm. The overall readings and those of
+the most active gateway share roughly the same peaks and troughs
+at low levels of receive power. We may speculate that the activity
+and mobility of transmitters strongly shapes the figure: For instance,
+an active and static sender will likely introduce a peak, whereas
+mobile senders rather contribute to multiple bins. As noted before,
+the topology of the landscape plays a role.
 
 \begin{figure}
   \centering
@@ -64,12 +70,14 @@ gateways (gray), and at the most active gateway (cyan).
 \end{figure}
 
 Figure~\ref{fig:qrg} overviews the use of frequencies for transmissions
-in the European \gls{SRD} band, as seen across all gateways (gray) and
-at the most active gateway (cyan).
-\todo[inline]{868,1 bis ,5 machen den Löwenanteil aus. Nicht alle Gateways können alle Frequenzen, und schon gar nicht alle Sender!}
-
-
-
+in the European \gls{SRD} band (863-870 MHz), as seen across all
+gateways (gray) and at the most active gateway (cyan).
+Evidently, transmissions on 868.1, .3 and .5 MHz dominate. The reason
+is twofold: First, not all senders are able to use all channels.
+Second, this is also true for gateways. The most active gateway,
+while technically capable to receive on all eight channels, still
+sees most of the messages on those three, indicating a sender-side
+limitation. Other gateways do see uniform usage of channels.
 
 \begin{figure}
   \centering
@@ -82,4 +90,12 @@ Figure~\ref{fig:sizes} plots the number of messages received across
 all gateways, cumulated by message sizes. Note the logarithmic $y$ axis.
 The mode of the distribution is $22$ bytes with a count of over 1.7 million.
 A small cluster forms around the value.
-\todo[inline]{Ein paar Spitzen (allerdings um Größenordnungen kleiner) gibt es noch; ohne detaillierten Blick in die Daten schwierig, weitere Schlüsse zu ziehen. Der prävalente SF12 ist immerhin kongruent mit kurzen Messages.}
+Other but distinctly smaller peaks exist. It is difficult to
+reason why either exist without knowing more details about the
+senders and the applications deployed.
+We may remark that the short message size is somewhat congruent
+with the prevalent spreading factor seen by the gateways, SF12.
+This spreading factor implies more robustness at reception at the
+cost of long symbol durations (which in turn make longer messages
+more prone to collisions), so messages should be short to achieve
+reasonable goodput.
