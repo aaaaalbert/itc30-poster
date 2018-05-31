@@ -4,7 +4,7 @@
 \gls{oin}, Vienna's community-operated \gls{IoT} network, hinges on
 three architectural elements supporting its operation:
 First, the wireless connectivity between sensors and the network
-uses \gls{lora} and \gls{lorawan} specifically.
+uses \gls{lora} and \gls{lorawan} specifically~\cite{DBLP:journals/sensors/AugustinYCT16,lorawan-spec}.
 Second, the gateways and backend operate according to the architecture
 proposed by \gls{ttn}~\cite{ttn}.
 Third, gateways, backend, Internet connectivity etc. are built, operated,
@@ -28,7 +28,7 @@ and bandwidth.
 A certain degree of orthogonality between temporally overlapping
 transmissions is achieved by using different sub-ranges of
 the current frequency band (better), and assigning different spreading
-factors to different senders (less optimal)~\cite{croce}.
+factors to different senders (less optimal)~\cite{DBLP:conf/tiwdc/CroceGTGM17}.
 Otherwise, senders are assumed to use low
 transmit power, and limit their active duty cycles explicitly
 according to radio regulations in the frequency band, and implicitly
@@ -40,7 +40,7 @@ of 20 to 250 bytes.
 %
 % Message length on the air 50-1500 ms
 
-\gls{lorawan}~\cite{lorawan-specs} builds on \gls{lora} and adds
+\gls{lorawan}~\cite{lorawan-spec} builds on \gls{lora} and adds
 a message format usable in a system with wireless end devices,
 access gateways, and network servers for further data processing.
 The message format
