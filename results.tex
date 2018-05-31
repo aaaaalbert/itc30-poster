@@ -29,7 +29,7 @@ With this caveat, we turn to discussing our first results.
 \begin{figure}
   \centering
   \includegraphics[width=\columnwidth]{figures/counts.pdf}
-  \caption{Number messages per day across all gateways.}
+  \caption{Number of messages per day across all gateways (gray), and at the most active gateway (cyan).}
   \label{fig:counts}
 \end{figure}
 
@@ -38,8 +38,12 @@ evaluated period. The system handles an average (and median) of over
 73,000 messages per day, with peaks up to 120,000, corresponding to
 per-second averages of 0.8 and 1.3. A closer look reveals peaks
 of up to 3 messages per second. The most ``popular'' gateway
-receives 25\% of all messages; the three runners-up account for
+receives 25\% of all messages (highlighted in cyan in the figure);
+the three runners-up account for
 the next 25\% of messages received.
+A few days of low (and even no) activity can be seen, but lacking
+more detailed data at the moment, unfortunately we cannot reveal the
+cause for these artifacts.
 
 \begin{figure}
   \centering
